@@ -39,9 +39,13 @@ $RESPONSE = json_decode($RESPONSE, 1);
 $CURRENT_CLASS = $RESPONSE['Character']['ActiveClassJob']['UnlockedState']['Name'];
 $CURRENT_CLASS_LEVEL = $RESPONSE['Character']['ActiveClassJob']['Level'];
 
+// Avatar Picture URL //
+$AVATAR_LINK = $RESPONSE['Character']['Avatar'];
+
 // Print the information //
 print $CHARACTER_NAME . "<br>";
 print "Current Class: " . $CURRENT_CLASS . "<br>";
-print "Current Class Level: " . $CURRENT_CLASS_LEVEL;
+print "Current Class Level: " . $CURRENT_CLASS_LEVEL . "<br>";
+print '<img src="' . $AVATAR_LINK . '">';
 
 ?>
