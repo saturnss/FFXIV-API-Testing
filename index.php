@@ -16,6 +16,7 @@ $SERVER_NAME = "Faerie";
 $CHARACTER_NAME_REFORMAT = str_replace(" ", "+", $CHARACTER_NAME);
 
 $URL = "/character/search";
+// You can use an API key with the API calls, add it to the parameters with: ?private_key= or put in payload //
 $PARAMS = "?name=" . $CHARACTER_NAME_REFORMAT . "&server=" . $SERVER_NAME;
 
 
@@ -28,15 +29,17 @@ $LODESTONE_ID = $RESPONSE['Results'][0]['ID'];
 
 // Pull character information by Lodestone ID //
 $URL = "/character/" . $LODESTONE_ID;
-// You can use an API key with the call, add it to the parameters with: ?private_key= or put in payload //
 $PARAMS = "";
 
 $RESPONSE = $CURL->sendGET($URL, $PARAMS);
+// Put JSON into an array so it is easier to read //
 $RESPONSE = json_decode($RESPONSE, 1);
 
+// Save current class information //
 $CURRENT_CLASS = $RESPONSE['Character']['ActiveClassJob']['UnlockedState']['Name'];
 $CURRENT_CLASS_LEVEL = $RESPONSE['Character']['ActiveClassJob']['Level'];
 
+// Print the information //
 print $CHARACTER_NAME . "<br>";
 print "Current Class: " . $CURRENT_CLASS . "<br>";
 print "Current Class Level: " . $CURRENT_CLASS_LEVEL;
