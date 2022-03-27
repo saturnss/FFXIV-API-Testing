@@ -7,6 +7,9 @@
 include_once("REST.php");
 $CURL = REST::create('ff14');
 
+// Code Version //
+$VERSION = "1.0.0";
+
 // Find Lodestone ID by Character Name and Server Name //
 // Come say hi to me on FFXIV if you use this code! //
 $CHARACTER_NAME = "Yukiko Kouri";

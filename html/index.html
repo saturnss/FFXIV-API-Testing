@@ -3,8 +3,7 @@
 <HEAD>
 <TITLE>FFXIV API Test</TITLE>
 <STYLE></STYLE>
-<link rel="stylesheet" type="text/css" href="css/css.css" />
-<script src="javascript/js.js"></script>
+<link rel="stylesheet" type="text/css" href="css/base.css" />
 <SCRIPT>
 </SCRIPT>
 </HEAD>
@@ -13,7 +12,7 @@
 		<div style="float: left;"><img src="<?=$AVATAR_LINK?>"></div>
 		<div style="float: left;">
 			<?=$CHARACTER_NAME?><br>
-			<img src="./images/<?=$CURRENT_CLASS_ICON?>" style="height: 25px; width: 25px;" title="<?=$CURRENT_CLASS?>">
+			<img class="jobicon" src="./images/<?=$CURRENT_CLASS_ICON?>" title="<?=$CURRENT_CLASS?>">
 			<?=$CURRENT_CLASS?><br>
 			Level <?=$CURRENT_CLASS_LEVEL?>
 		</div>
