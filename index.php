@@ -38,14 +38,24 @@ $RESPONSE = json_decode($RESPONSE, 1);
 // Save current class information //
 $CURRENT_CLASS = $RESPONSE['Character']['ActiveClassJob']['UnlockedState']['Name'];
 $CURRENT_CLASS_LEVEL = $RESPONSE['Character']['ActiveClassJob']['Level'];
+// Get Current Class job icon //
+$CURRENT_CLASS_ICON = getJobIcon($CURRENT_CLASS);
 
 // Avatar Picture URL //
 $AVATAR_LINK = $RESPONSE['Character']['Avatar'];
 
-// Print the information //
-print $CHARACTER_NAME . "<br>";
-print "Current Class: " . $CURRENT_CLASS . "<br>";
-print "Current Class Level: " . $CURRENT_CLASS_LEVEL . "<br>";
-print '<img src="' . $AVATAR_LINK . '">';
+include_once("html/index.html");
+
+
+function getJobIcon($CURRENT_CLASS){
+	// Lowercase the name //
+	$ICON = strtolower($CURRENT_CLASS);
+	// Remove any spaces //
+	$ICON = str_replace(" ", "", $ICON);
+	// Images are in .png //
+	$ICON = $ICON . ".png";
+	
+	return $ICON;
+}
 
 ?>
